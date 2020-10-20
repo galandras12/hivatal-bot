@@ -1,14 +1,11 @@
 {
-<<<<<<< HEAD
-  "name": "dcbothivatal",
-=======
   "name": "hivataldcbot",
->>>>>>> 6422ac3645bc63dcf6dc7f3b3a53dbb497f33b75
   "version": "1.0.0",
   "description": "Hivatal Discord bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start": "index.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,12 +14,6 @@
     "log-timestamp": "^0.3.0"
   }
 }
-<<<<<<< HEAD
-"scripts": {
-    "start": "index.js"
-}
-=======
 {
   "npm": "index.js"
 }
->>>>>>> 6422ac3645bc63dcf6dc7f3b3a53dbb497f33b75
