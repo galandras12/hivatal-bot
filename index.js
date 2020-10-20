@@ -1,13 +1,19 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
 const client = new Discord.Client();
-const CLEAR_MESSAGES = '!clear';
 const prefix = "!";
+var Imap     = require('imap'),
+    inspect  = require('util').inspect;
+var fs       = require('fs');
+//require('log-timestamp')('HIVATAL-BOT:', 'Europe/Budapest');
+require('console-inject');
 
-require('log-timestamp')('HIVATAL-BOT:');
 
+	
 client.on('ready', () => {
-  console.log('BOT is RUN');
+  console.debug('BOT is RUN');
+  
+
  // client.channels.cache.get("760790573354844190").send("Hivatal BOT is `RESTARTED`");
   
 /*  setInterval(function(){
@@ -50,8 +56,12 @@ client.on("message", function(message) {
   }   
   else if (command === "sum") {
     const numArgs = args.map(x => parseFloat(x));
-    const sum = numArgs.reduce((counter, x) => counter += x);
+    const sum = numArgs.reduce((counter, x) => counter += x);client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `Közlemények!`");
     message.reply(`az összege: ${sum}!`);
+  }
+  else if (command === "kocka") {
+	   var response = [Math.floor(Math.random() * ((100 - 1) + 1) + 1)];
+   message.channel.send("You got... " + response + "!").then().catch(console.error);
   }
   
   else if (command === "delpadat") {
@@ -70,7 +80,7 @@ client.on("message", function(message) {
   else if (command === "delkoz") {
 	 client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények!');
-	client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `Közlemények!`");
+	
 	/* var interval = setInterval (function () {
             // use the message's channel (TextChannel) to send a new message
             message.channel.bulkDelete(100)
@@ -83,9 +93,6 @@ client.on("message", function(message) {
 		message.reply("`használd a következő paancsokat: `\n`Válasz időt mutatja a bot és a géped között: !ping`\n`Számok gyors összeadására van: !szum`");
 }
 
-	
-
-	
 
 });
 
