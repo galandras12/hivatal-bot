@@ -1,19 +1,28 @@
 {
   "name": "hivataldcbot",
   "version": "1.0.0",
-  "description": "Hivatal Discord bot",
+  "description": "Hivatal BOT - Discord",
   "main": "index.js",
+  "dependencies": {
+    "console-inject": "^1.0.8"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-	"start": "index.js"
+    "start": "node index.js"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/galandras12/hivatal-bot.git"
+  },
+  "keywords": [
+    "Discord.JS",
+    "bot"
+  ],
+  "author": "Andras Gal - Mezobereny",
   "license": "ISC",
-  "dependencies": {
-    "discord.js": "^12.3.1",
-    "log-timestamp": "^0.3.0"
-  }
-}
-{
-  "npm": "index.js"
+  "bugs": {
+    "url": "https://github.com/galandras12/hivatal-bot/issues"
+  },
+  "homepage": "https://github.com/galandras12/hivatal-bot#readme"
 }
