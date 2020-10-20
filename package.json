@@ -4,7 +4,8 @@
   "description": "Hivatal BOT - Discord",
   "main": "index.js",
   "dependencies": {
-    "console-inject": "^1.0.8"
+    "console-inject": "^1.0.8",
+    "discord.js": "^12.4.0"
   },
   "devDependencies": {},
   "scripts": {
