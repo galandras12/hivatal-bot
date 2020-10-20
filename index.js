@@ -48,7 +48,7 @@ client.on("message", function(message) {
   else if (command === "delkoz") {
 	 client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények!');
-	
+  }
 
 else if (command === "delall") {
 	client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
