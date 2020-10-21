@@ -2,12 +2,22 @@ const Discord = require("discord.js");
 const config = require("./config.json");
 const client = new Discord.Client();
 const prefix = "!";
+var cron = require('node-cron');
 //require('log-timestamp')('HIVATAL-BOT:', 'Europe/Budapest');
 require('console-inject');
 	
 client.on('ready', () => {
   console.debug('BOT is RUN');
 
+cron.schedule('05 14 * * 1,2,3,4,5', () => {
+    client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
+	console.log('DELETED last 100 messages in Közlemények!');
+	client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
+	console.log('DELETED last 100 messages in ADÓ EADAT!');
+	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
+	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
+	client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`");
+});
  // client.channels.cache.get("760790573354844190").send("Hivatal BOT is `RESTARTED`");
  
 });
