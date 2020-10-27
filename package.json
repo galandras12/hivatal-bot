@@ -6,7 +6,9 @@
   "dependencies": {
     "console-inject": "^1.0.8",
     "discord.js": "^12.4.0",
-    "node-cron": "^2.0.3"
+    "imap": "^0.8.19",
+    "node-cron": "^2.0.3",
+    "node-pop3": "^0.6.0"
   },
   "devDependencies": {},
   "scripts": {
