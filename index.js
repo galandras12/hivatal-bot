@@ -5,13 +5,15 @@ const prefix = "!";
 var cron = require('node-cron');
 //require('log-timestamp')('HIVATAL-BOT:', 'Europe/Budapest');
 require('console-inject');
+
 	
 client.on('ready', () => {
   console.debug('BOT is RUN');
 
+
 client.user.setStatus('dnd')
 
-cron.schedule('00 16 * * 3', () => {
+cron.schedule('35 16 * * 3', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
@@ -68,7 +70,7 @@ setInterval(function() {
   type: "WATCHING",
   url: "https://mezobereny.hu"
 }); // Every second, this will return a _new random_ fact
-}, 60*1000)
+}, 30*60*1000)
 
 cron.schedule('0 14 * * 5', () => {
     client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
@@ -121,16 +123,16 @@ client.on("message", function(message) {
   const command = args.shift().toLowerCase();
   if (command === "ping") {
     const timeTaken = Date.now() - message.createdTimestamp;
-    message.reply(`Pong! Az üzenet késleltetése: ${timeTaken}ms.`);
+    message.reply(`Az üzenet késleltetése: ${timeTaken}ms.`);
   }   
   else if (command === "sum") {
     const numArgs = args.map(x => parseFloat(x));
-    const sum = numArgs.reduce((counter, x) => counter += x);client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `Közlemények!`");
+    const sum = numArgs.reduce((counter, x) => counter += x);
     message.reply(`az összege: ${sum}!`);
   }
   else if (command === "kocka") {
 	   var response = [Math.floor(Math.random() * ((100 - 1) + 1) + 1)];
-   message.channel.send("You got... " + response + "!").then().catch(console.error);
+   message.channel.send("Ez most... " + response + "!").then().catch(console.error);
   }
   
   else if (command === "delpadat") {
@@ -149,6 +151,10 @@ client.on("message", function(message) {
   else if (command === "delkoz") {
 	 client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények!');
+	client.user.setActivity("Munka idő végét!", {
+  type: "WATCHING",
+  url: "https://mezobereny.hu"
+});
   }
 
 else if (command === "delall") {
