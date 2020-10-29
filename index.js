@@ -5,10 +5,10 @@ const prefix = "!";
 var cron = require('node-cron');
 //require('log-timestamp')('HIVATAL-BOT:', 'Europe/Budapest');
 require('console-inject');
-
 	
 client.on('ready', () => {
   console.debug('BOT is RUN');
+
 
 
 client.user.setStatus('dnd')
@@ -170,6 +170,11 @@ else if (command === "delall") {
 		message.reply("`használd a következő paancsokat: `\n`Válasz időt mutatja a bot és a géped között: !ping`\n`Számok gyors összeadására van: !szum`");
 }
 
+else if (command === "reggel") {
+client.user.setActivity("Jó reggelt!", {
+  type: "PLAYING",
+  url: "https://mezobereny.hu"
+}); }
 
 });
 
