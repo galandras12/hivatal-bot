@@ -9,9 +9,8 @@ require('console-inject');
 client.on('ready', () => {
   console.debug('BOT is RUN');
 
-
-
-client.user.setStatus('dnd')
+client.user.setStatus('online')
+//online, idle, invisible, dnd
 
 cron.schedule('35 16 * * 3', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
@@ -26,7 +25,6 @@ cron.schedule('30 11 * * 1,2,3,4,5', () => {
   url: "https://mezobereny.hu"
 });
 });
-
 
 cron.schedule('00 12 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Ebédjét", {
@@ -177,7 +175,7 @@ client.user.setActivity("Jó reggelt!", {
 }); }
 
 else if (command === "rstat") {
-const randommessages = ['ASP-t iratok', 'uzsonás zacsit', 'kedves ügyfeleket', 'postázandókat', 'de nem látja', 'mennyi van hátra a munkából', 'papír halmok', 'mi a teendő még', 'mit kell aláiratni', 'mennyi az idő', 'mezobereny.hu', 'naptári ünnepnapokat', 'kitűzött szabadságot', 'iktatnivalót', 'milyen alszám lehet', 'mekkora a rendetlenség', 'érkezett email-eket', 'hogy csak egy robot aki nem tud ennyi mindent nézni']
+const randommessages = ['ASP-t iratok', 'uzsonás zacsit', 'kedves ügyfeleket', 'postázandókat', 'de nem látja', 'mennyi van hátra a munkából', 'papír halmok', 'mi a teendő még', 'mit kell aláiratni', 'mennyi az idő', 'mezobereny.hu', 'naptári ünnepnapokat', 'kitűzött szabadságot', 'iktatnivalót', 'milyen alszám lehet', 'mekkora a rendetlenség', 'érkezett email-eket', 'hogy csak egy robot aki nem tud ennyi mindent nézni', 'ASP oldalát', 'eAdatokat', 'a kedves ügyfelet', 'megint nem megy semmi normálisan']
 const randomMessage = randommessages[Math.floor(Math.random() * randommessages.length)];
 client.user.setActivity(randomMessage, {
   type: "WATCHING",
@@ -186,6 +184,5 @@ client.user.setActivity(randomMessage, {
 }
 
 });
-
 
 client.login(config.BOT_TOKEN);
