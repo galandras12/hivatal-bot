@@ -67,7 +67,7 @@ setInterval(function() {
   client.user.setActivity(facts[fact], {
   type: "WATCHING",
   url: "https://mezobereny.hu"
-}); // Every second, this will return a _new random_ fact
+}); // Every 30 min, this will return a _new random_ fact
 }, 30*60*1000)*/
 
 cron.schedule('0 14 * * 5', () => {
