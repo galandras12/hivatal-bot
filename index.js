@@ -63,14 +63,14 @@ cron.schedule('35 13 * * 5', () => {
 });
 });
 
-var facts = ['ASP-t iratok', 'uzsonás zacsit', 'kedves ügyfeleket', 'postázandókat', 'de nem látja', 'mennyi van hátra a munkából', 'papír halmok', 'mi a teendő még', 'mit kell aláiratni', 'mennyi az idő', 'mezobereny.hu', 'naptári ünnepnapokat', 'kitűzött szabadságot', 'iktatnivalót', 'milyen alszám lehet', 'mekkora a rendetlenség', 'érkezett email-eket', 'hogy csak egy robot aki nem tud ennyi mindent nézni']
+/*var facts = ['ASP-t iratok', 'uzsonás zacsit', 'kedves ügyfeleket', 'postázandókat', 'de nem látja', 'mennyi van hátra a munkából', 'papír halmok', 'mi a teendő még', 'mit kell aláiratni', 'mennyi az idő', 'mezobereny.hu', 'naptári ünnepnapokat', 'kitűzött szabadságot', 'iktatnivalót', 'milyen alszám lehet', 'mekkora a rendetlenség', 'érkezett email-eket', 'hogy csak egy robot aki nem tud ennyi mindent nézni']
 setInterval(function() {
   var fact = Math.floor(Math.random() * facts.length)
   client.user.setActivity(facts[fact], {
   type: "WATCHING",
   url: "https://mezobereny.hu"
 }); // Every second, this will return a _new random_ fact
-}, 30*60*1000)
+}, 30*60*1000)*/
 
 cron.schedule('0 14 * * 5', () => {
     client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
@@ -175,6 +175,15 @@ client.user.setActivity("Jó reggelt!", {
   type: "PLAYING",
   url: "https://mezobereny.hu"
 }); }
+
+else if (command === "rstat") {
+const randommessages = ['ASP-t iratok', 'uzsonás zacsit', 'kedves ügyfeleket', 'postázandókat', 'de nem látja', 'mennyi van hátra a munkából', 'papír halmok', 'mi a teendő még', 'mit kell aláiratni', 'mennyi az idő', 'mezobereny.hu', 'naptári ünnepnapokat', 'kitűzött szabadságot', 'iktatnivalót', 'milyen alszám lehet', 'mekkora a rendetlenség', 'érkezett email-eket', 'hogy csak egy robot aki nem tud ennyi mindent nézni']
+const randomMessage = randommessages[Math.floor(Math.random() * randommessages.length)];
+client.user.setActivity(randomMessage, {
+  type: "WATCHING",
+  url: "https://mezobereny.hu"
+});
+}
 
 });
 
