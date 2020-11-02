@@ -3,11 +3,27 @@ const config = require("./config.json");
 const client = new Discord.Client();
 const prefix = "!";
 var cron = require('node-cron');
+const notifier = require('mail-notifier');
 //require('log-timestamp')('HIVATAL-BOT:', 'Europe/Budapest');
 require('console-inject');
 	
 client.on('ready', () => {
   console.debug('BOT is RUN');
+  
+  const imap = {
+  user: 'galandras.mezobereny@gmail.com',
+  password: 'tnwaaevhsrmboocs',
+  host: 'imap.gmail.com',
+  port: 993,
+  tls: true,
+  tlsOptions: { rejectUnauthorized: false },
+  box: 'eAdat',
+};
+
+const n = notifier(imap);
+n.on('end', () => n.start()) // session closed
+  .on('mail', mail => client.channels.cache.get("760790573354844190").send(mail.subject))
+  .start();
 
 client.user.setStatus('online')
 //online, idle, invisible, dnd
