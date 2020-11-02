@@ -28,7 +28,7 @@ n.on('end', () => n.start()) // session closed
 client.user.setStatus('online')
 //online, idle, invisible, dnd
 
-cron.schedule('35 16 * * 3', () => {
+cron.schedule('35 17 * * 3', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"

@@ -8,12 +8,8 @@
     "discord.js": "^12.4.0",
     "imap": "^0.8.19",
     "imap-simple": "^5.0.0",
-    "imapflow": "^1.0.51",
-    "mail-listener2": "^0.3.1",
-    "mail-listener5": "^2.0.2",
     "mail-notifier": "^0.5.0",
     "node-cron": "^2.0.3",
-    "node-pop3": "^0.6.0"
   },
   "devDependencies": {},
   "scripts": {
