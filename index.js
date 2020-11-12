@@ -57,8 +57,6 @@ cron.schedule('30 12 * * 1,2,3,4,5', () => {
 });
 });
 
-//cron.schedule('01 12 * * 1,2,3,4,5', () => { client.channels.cache.get("689376897309999113").send("Jó étvágyat!"); }); cron.schedule('01 12 * * 1,2,3,4,5', () => { client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error)});
-
 cron.schedule('00 13 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Hol tartott eddig", {
   type: "WATCHING",
