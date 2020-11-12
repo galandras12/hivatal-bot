@@ -112,7 +112,7 @@ cron.schedule('00 18 * * 3', () => {
 	client.channels.cache.get("760790573354844190").send("NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`");
 });
 
-cron.schedule('00 12 * * 1,2,3,4,5', () => {
+/* cron.schedule('00 12 * * 1,2,3,4,5', () => {
     client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények!');
 	client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
@@ -120,9 +120,13 @@ cron.schedule('00 12 * * 1,2,3,4,5', () => {
 	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
 	client.channels.cache.get("760790573354844190").send("12:00 - DÉLI TISZTÍTÁS RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`");
-});
+}); */
  // client.channels.cache.get("760790573354844190").send("Hivatal BOT is `RESTARTED`");
  
+});
+
+client.on('guildMemberAdd', member => {
+    member.guild.channels.get('760790573354844190').send("Üdvözöljük "+ member +"!"); 
 });
 
 client.on("message", function(message) {
