@@ -121,7 +121,6 @@ cron.schedule('00 18 * * 3', () => {
 	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
 	client.channels.cache.get("760790573354844190").send("12:00 - DÉLI TISZTÍTÁS RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`");
 }); */
- // client.channels.cache.get("760790573354844190").send("Hivatal BOT is `RESTARTED`");
  
 });
 

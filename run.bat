@@ -1,3 +1,3 @@
 cd "C:\Users\admin\Documents\GitHub\hivatal-bot"
-npm start
+nodemon index.js
 pause
