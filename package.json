@@ -11,7 +11,8 @@
 		"imap": "^0.8.19",
 		"imap-simple": "^5.0.0",
 		"mail-notifier": "^0.5.0",
-		"node-cron": "^2.0.3"
+		"node-cron": "^2.0.3",
+		"tcp-ping-port": "^1.0.1"
 	},
 	"devDependencies": {},
 	"scripts": {
