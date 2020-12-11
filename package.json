@@ -6,13 +6,13 @@
 	"dependencies": {
 		"console-inject": "^1.0.8",
 		"discord.js": "^12.4.0",
+		"dns": "^0.2.2",
 		"escape-string-regexp": "^1.0.5",
 		"extend": "^3.0.2",
 		"imap": "^0.8.19",
 		"imap-simple": "^5.0.0",
 		"mail-notifier": "^0.5.0",
-		"node-cron": "^2.0.3",
-		"tcp-ping-port": "^1.0.1"
+		"node-cron": "^2.0.3"
 	},
 	"devDependencies": {},
 	"scripts": {

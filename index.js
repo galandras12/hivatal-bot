@@ -6,10 +6,16 @@ var cron = require('node-cron');
 const notifier = require('mail-notifier');
 //require('log-timestamp')('HIVATAL-BOT:', 'Europe/Budapest');
 require('console-inject');
+
 	
 client.on('ready', () => {
+	
   console.debug('BOT is RUN');
-  
+
+  /*cron.schedule('0,5,10,15,20,25,30,35,40,45,50,55 * * * 1,2,3,4,5', () => {
+  require('dns').resolve('www.google.com', function(err) {
+  if (err) { console.log("No connection email service to Google!"); } 
+	else { */
   const imap = {
   user: 'galandras.mezobereny@gmail.com',
   password: 'tnwaaevhsrmboocs',
@@ -18,12 +24,18 @@ client.on('ready', () => {
   tls: true,
   tlsOptions: { rejectUnauthorized: false },
   box: 'eAdat',
+  markSeen: true,
 };
+
+// notifier(imap).on('mail', mail => client.channels.cache.get("760790573354844190").send(mail.subject)).start();
 
 const n = notifier(imap);
 n.on('end', () => n.start()) // session closed
   .on('mail', mail => client.channels.cache.get("760790573354844190").send(mail.subject))
-  .start();
+  .start(); //Forever RUN
+  
+  			
+//	}});});
 
 client.user.setStatus('online')
 //online, idle, invisible, dnd
