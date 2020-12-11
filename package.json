@@ -17,7 +17,9 @@
 	"devDependencies": {},
 	"scripts": {
 		"test": "node test.js",
-		"start": "node index.js"
+		"start": "pm2 start index.js",
+		"nstart": "nodemon index.js",
+		"log": "pm2 log"
 	},
 	"repository": {
 		"type": "git",
