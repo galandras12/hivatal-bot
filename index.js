@@ -213,6 +213,26 @@ else if (command === "delall") {
 		message.reply("`használd a következő parancsokat: `\n`Válasz időt mutatja a bot és a géped között: !ping`\n`Számok gyors összeadására van: !szum`");
 }
 
+else if (command === "xmashivataluzenet") {
+	client.channels.cache.get("758650594235121684").send("Boldog karácsonyi ünnepeket!");
+	client.channels.cache.get("758650559246630922").send("Boldog karácsonyi ünnepeket!");
+	client.channels.cache.get("763302417676238848").send("Boldog karácsonyi ünnepeket!");
+	client.channels.cache.get("758675127927439400").send("Boldog karácsonyi ünnepeket!");
+	client.channels.cache.get("760092279880548362").send("Boldog karácsonyi ünnepeket!");
+	client.channels.cache.get("766619701346304000").send("Boldog karácsonyi ünnepeket!");
+	client.channels.cache.get("766627222022127636").send("Boldog karácsonyi ünnepeket!");
+}
+
+else if (command === "ujevhivataluzenet") {
+	client.channels.cache.get("758650594235121684").send("Boldog új évet!");
+	client.channels.cache.get("758650559246630922").send("Boldog új évet!");
+	client.channels.cache.get("763302417676238848").send("Boldog új évet!");
+	client.channels.cache.get("758675127927439400").send("Boldog új évet!");
+	client.channels.cache.get("760092279880548362").send("Boldog új évet!");
+	client.channels.cache.get("766619701346304000").send("Boldog új évet!");
+	client.channels.cache.get("766627222022127636").send("Boldog új évet!");
+}
+
 else if (command === "reggel") {
 client.user.setActivity("Jó reggelt!", {
   type: "PLAYING",
