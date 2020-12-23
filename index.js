@@ -70,13 +70,21 @@ cron.schedule('30 12 * * 1,2,3,4,5', () => {
 });
 
 cron.schedule('00 13 * * 1,2,3,4,5', () => {
-	client.user.setActivity("Hol tartott eddig", {
+	client.user.setActivity("Dolgozik", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
 });
 });
 
-cron.schedule('0 15 * * 1,2,4', () => {
+cron.schedule('00 14 * * 1,2,3,4,5', () => {
+	client.user.setActivity("Munkában van", {
+  type: "WATCHING",
+  url: "https://mezobereny.hu"
+});
+});
+
+
+cron.schedule('30 15 * * 1,2,4', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
@@ -97,31 +105,37 @@ cron.schedule('01 14 * * 5', () => {
 	console.log('DELETED last 100 messages in ADÓ EADAT!');
 	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-	client.channels.cache.get("760790573354844190").send("NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`");
+	client.channels.cache.get("790477118521081866").bulkDelete(100).catch(console.error);
+	console.log('DELETED last 100 messages in MUNKAÜGY EADAT!');
+	client.channels.cache.get("760790573354844190").send("14:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 cron.schedule('59 11 * * 5', () => {
 	client.channels.cache.get("689376897309999113").send("Kellemes hétvégét!");
 	});
 
-cron.schedule('0 16 * * 1,2,4', () => {
-    client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
+cron.schedule('0 16 * * 1,2,3,4', () => {
+   client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények!');
 	client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in ADÓ EADAT!');
 	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-	client.channels.cache.get("760790573354844190").send("NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`");
+	client.channels.cache.get("790477118521081866").bulkDelete(100).catch(console.error);
+	console.log('DELETED last 100 messages in MUNKAÜGY EADAT!');
+	client.channels.cache.get("760790573354844190").send("16:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
-cron.schedule('00 16 * * 3', () => {
+cron.schedule('00 18 * * 3', () => {
     client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények!');
 	client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in ADÓ EADAT!');
 	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-	client.channels.cache.get("760790573354844190").send("NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`");
+	client.channels.cache.get("790477118521081866").bulkDelete(100).catch(console.error);
+	console.log('DELETED last 100 messages in MUNKAÜGY EADAT!');
+	client.channels.cache.get("760790573354844190").send("18:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 cron.schedule('01 12 * * 5', () => {
@@ -131,7 +145,9 @@ cron.schedule('01 12 * * 5', () => {
 	console.log('DELETED last 100 messages in ADÓ EADAT!');
 	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-	client.channels.cache.get("760790573354844190").send("12:00 - DÉLI TISZTÍTÁS RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`");
+	client.channels.cache.get("790477118521081866").bulkDelete(100).catch(console.error);
+	console.log('DELETED last 100 messages in MUNKAÜGY EADAT!');
+	client.channels.cache.get("760790573354844190").send("12:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 }); 
  
 });
@@ -189,7 +205,9 @@ else if (command === "delall") {
 	console.log('DELETED last 100 messages in ADÓ EADAT!');
 	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-	client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`");
+	client.channels.cache.get("790477118521081866").bulkDelete(100).catch(console.error);
+	console.log('DELETED last 100 messages in MUNKAÜGY EADAT!');
+	client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 }
 	else if (command === "help") {
 		message.reply("`használd a következő parancsokat: `\n`Válasz időt mutatja a bot és a géped között: !ping`\n`Számok gyors összeadására van: !szum`");
