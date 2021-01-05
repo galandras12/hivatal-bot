@@ -110,10 +110,6 @@ cron.schedule('01 14 * * 5', () => {
 	client.channels.cache.get("760790573354844190").send("14:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
-cron.schedule('59 11 * * 5', () => {
-	client.channels.cache.get("689376897309999113").send("Kellemes hétvégét!");
-	});
-
 cron.schedule('0 16 * * 1,2,3,4', () => {
    client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények!');
