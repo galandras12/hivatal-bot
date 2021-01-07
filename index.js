@@ -13,7 +13,7 @@ const hivataluzenetall = ['689376897309999113', '766627222022127636', '766619701
 	
 client.on('ready', () => {
 	
-  console.debug('BOT is RUN');
+console.debug('BOT is RUN');
   
 const imap = {
 	user: mailauth.emailusername,
