@@ -1,9 +1,11 @@
 const Discord = require("discord.js");
 const config = require("./config.json");
+const mailauth = require("./authmail.json");
+const notifier = require('mail-notifier');
 const client = new Discord.Client();
 const prefix = "!";
 var cron = require('node-cron');
-const notifier = require('mail-notifier');
+
 //require('log-timestamp')('HIVATAL-BOT:', 'Europe/Budapest');
 require('console-inject');
 const clearchannelid = ['689376897309999113', '689394488476827665', '689394453877751835', '790477118521081866'];
@@ -12,31 +14,22 @@ const hivataluzenetall = ['689376897309999113', '766627222022127636', '766619701
 client.on('ready', () => {
 	
   console.debug('BOT is RUN');
-
-  /*cron.schedule('0,5,10,15,20,25,30,35,40,45,50,55 * * * 1,2,3,4,5', () => {
-  require('dns').resolve('www.google.com', function(err) {
-  if (err) { console.log("No connection email service to Google!"); } 
-	else { */
-  const imap = {
-  user: 'galandras.mezobereny@gmail.com',
-  password: 'tnwaaevhsrmboocs',
-  host: 'imap.gmail.com',
-  port: 993,
-  tls: true,
-  tlsOptions: { rejectUnauthorized: false },
-  box: 'eAdat',
-  markSeen: true,
-};
-
-// notifier(imap).on('mail', mail => client.channels.cache.get("760790573354844190").send(mail.subject)).start();
-
+  
+const imap = {
+	user: mailauth.emailusername,
+	password: mailauth.emailpassword,
+	host: 'imap.gmail.com',
+	port: 993,
+	tls: true,
+	tlsOptions: { rejectUnauthorized: false },
+	box: mailauth.emailbox,
+	markSeen: true,
+  }
+  
 const n = notifier(imap);
 n.on('end', () => n.start()) // session closed
-  .on('mail', mail => client.channels.cache.get("760790573354844190").send(mail.subject))
-  .start(); //Forever RUN
-  
-  			
-//	}});});
+	.on('mail', mail => client.channels.cache.get("760790573354844190").send(mail.subject))
+	.start(); //Forever RUN 
 
 client.user.setStatus('online')
 //online, idle, invisible, dnd
@@ -84,7 +77,6 @@ cron.schedule('00 14 * * 1,2,3,4,5', () => {
 });
 });
 
-
 cron.schedule('30 15 * * 1,2,4', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
   type: "WATCHING",
@@ -130,7 +122,6 @@ cron.schedule('01 12 * * 5', () => {
 	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get("760790573354844190").send("12:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 }); 
- 
 });
 
 client.on('guildMemberAdd', member => {
