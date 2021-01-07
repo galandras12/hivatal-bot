@@ -6,7 +6,8 @@ var cron = require('node-cron');
 const notifier = require('mail-notifier');
 //require('log-timestamp')('HIVATAL-BOT:', 'Europe/Budapest');
 require('console-inject');
-
+const clearchannelid = ['689376897309999113', '689394488476827665', '689394453877751835', '790477118521081866'];
+const hivataluzenetall = ['689376897309999113', '766627222022127636', '766619701346304000', '760092279880548362', '758675127927439400', '763302417676238848', '758650559246630922', '758650594235121684'];
 	
 client.on('ready', () => {
 	
@@ -99,50 +100,34 @@ cron.schedule('35 11 * * 5', () => {
 });
 
 cron.schedule('01 14 * * 5', () => {
-    client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in Közlemények!');
-	client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in ADÓ EADAT!');
-	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-	client.channels.cache.get("790477118521081866").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in MUNKAÜGY EADAT!');
+    clearchannelid.forEach(element => { 
+	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
+		}); 
+	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get("760790573354844190").send("14:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 cron.schedule('0 16 * * 1,2,3,4', () => {
-   client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in Közlemények!');
-	client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in ADÓ EADAT!');
-	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-	client.channels.cache.get("790477118521081866").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in MUNKAÜGY EADAT!');
+   clearchannelid.forEach(element => { 
+	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
+		}); 
+	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get("760790573354844190").send("16:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 cron.schedule('00 18 * * 3', () => {
-    client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in Közlemények!');
-	client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in ADÓ EADAT!');
-	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-	client.channels.cache.get("790477118521081866").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in MUNKAÜGY EADAT!');
+    clearchannelid.forEach(element => { 
+	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
+		}); 
+	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get("760790573354844190").send("18:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 cron.schedule('01 12 * * 5', () => {
-    client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in Közlemények!');
-	client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in ADÓ EADAT!');
-	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-	client.channels.cache.get("790477118521081866").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in MUNKAÜGY EADAT!');
+    clearchannelid.forEach(element => { 
+	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
+		}); 
+	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get("760790573354844190").send("12:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 }); 
  
@@ -195,14 +180,11 @@ client.on("message", function(message) {
   }
 
 else if (command === "delall") {
-	client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in Közlemények!');
-	client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in ADÓ EADAT!');
-	client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-	client.channels.cache.get("790477118521081866").bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in MUNKAÜGY EADAT!');
+	
+	clearchannelid.forEach(element => { 
+	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
+		}); 
+	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 }
 	else if (command === "help") {
@@ -210,25 +192,13 @@ else if (command === "delall") {
 }
 
 else if (command === "xmashivataluzenet") {
-	client.channels.cache.get("758650594235121684").send("Boldog karácsonyi ünnepeket!");
-	client.channels.cache.get("758650559246630922").send("Boldog karácsonyi ünnepeket!");
-	client.channels.cache.get("763302417676238848").send("Boldog karácsonyi ünnepeket!");
-	client.channels.cache.get("758675127927439400").send("Boldog karácsonyi ünnepeket!");
-	client.channels.cache.get("760092279880548362").send("Boldog karácsonyi ünnepeket!");
-	client.channels.cache.get("766619701346304000").send("Boldog karácsonyi ünnepeket!");
-	client.channels.cache.get("766627222022127636").send("Boldog karácsonyi ünnepeket!");
-	client.channels.cache.get("689376897309999113").send("Boldog karácsonyi ünnepeket!");
+	hivataluzenetall.forEach(element => { 
+	client.channels.cache.get(element).send("Boldog karácsonyi ünnepeket!"); }); 
 }
 
 else if (command === "ujevhivataluzenet") {
-	client.channels.cache.get("758650594235121684").send("Boldog új évet!");
-	client.channels.cache.get("758650559246630922").send("Boldog új évet!");
-	client.channels.cache.get("763302417676238848").send("Boldog új évet!");
-	client.channels.cache.get("758675127927439400").send("Boldog új évet!");
-	client.channels.cache.get("760092279880548362").send("Boldog új évet!");
-	client.channels.cache.get("766619701346304000").send("Boldog új évet!");
-	client.channels.cache.get("766627222022127636").send("Boldog új évet!");
-	client.channels.cache.get("689376897309999113").send("Boldog új évet!");
+	hivataluzenetall.forEach(element => { 
+	client.channels.cache.get(element).send("Boldog új évet!"); }); 
 }
 
 else if (command === "reggel") {
