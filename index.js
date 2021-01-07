@@ -173,10 +173,6 @@ client.on("message", function(message) {
   else if (command === "delkoz") {
 	 client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények!');
-	client.user.setActivity("Munka idő végét!", {
-  type: "WATCHING",
-  url: "https://mezobereny.hu"
-});
   }
 
 else if (command === "delall") {
@@ -217,7 +213,6 @@ else if (command === "e-utal") {
 client.channels.cache.get('689394453877751835').send("eAdat érkezett Napi utalás támában");
 client.channels.cache.get('790477118521081866').send("eAdat érkezett Napi utalás támában");
 }
-
 
 else if (command === "reggel") {
 client.user.setActivity("Jó reggelt!", {
