@@ -134,34 +134,40 @@ client.on("message", function(message) {
   const commandBody = message.content.slice(prefix.length);
   const args = commandBody.split(' ');
   const command = args.shift().toLowerCase();
-  if (command === "ping") {
+
+if (command === "ping") {
     const timeTaken = Date.now() - message.createdTimestamp;
     message.reply(`Az üzenet késleltetése: ${timeTaken}ms.`);
   }   
-  else if (command === "sum") {
+
+else if (command === "sum") {
     const numArgs = args.map(x => parseFloat(x));
     const sum = numArgs.reduce((counter, x) => counter += x);
     message.reply(`az összege: ${sum}!`);
   }
-  else if (command === "kocka") {
+
+else if (command === "kocka") {
 	   var response = [Math.floor(Math.random() * ((100 - 1) + 1) + 1)];
    message.channel.send("Ez most... " + response + "!").then().catch(console.error);
   }
-  
-  else if (command === "delpadat") {
+
+else if (command === "delpadat") {
 		client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
 		console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
 		client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `PÉNÜGY EADAT!`");
-}else if (command === "adhelp") {
+}
+
+else if (command === "adhelp") {
 		message.reply("`használd a következő admin paancsokat: `\n`Közlemény törlés: !delkoz`\n`Pénzügy eAdat törlése: !delpadat`\n`Adó eAdat törlése: !delaadat`\n`Közlemények, Eadatok (mind) törlése: !delall`");
 }
-	else if (command === "delaadat") {
+
+else if (command === "delaadat") {
 		client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
 		console.log('DELETED last 100 messages in ADÓ EADAT!');
 		client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `ADÓ EADAT!`");
 }
-  
-  else if (command === "delkoz") {
+
+else if (command === "delkoz") {
 	 client.channels.cache.get("689376897309999113").bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények!');
   }
@@ -174,7 +180,8 @@ else if (command === "delall") {
 	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 }
-	else if (command === "help") {
+
+else if (command === "help") {
 		message.reply("`használd a következő parancsokat: `\n`Válasz időt mutatja a bot és a géped között: !ping`\n`Számok gyors összeadására van: !szum`");
 }
 
@@ -192,14 +199,17 @@ else if (command === "munkadat")
 {
 	client.channels.cache.get('790477118521081866').send("Érkezett eAdat!");
 }
+
 else if (command === "penzadat")
 {
 	client.channels.cache.get('689394453877751835').send("Érkezett eAdat!");
 }
+
 else if (command === "adoadat")
 {
 	client.channels.cache.get('689394488476827665').send("Érkezett eAdat!");
 }
+
 else if (command === "e-utal") {
 client.channels.cache.get('689394453877751835').send("eAdat érkezett Napi utalás támában");
 client.channels.cache.get('790477118521081866').send("eAdat érkezett Napi utalás támában");
