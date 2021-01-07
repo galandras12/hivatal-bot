@@ -201,6 +201,24 @@ else if (command === "ujevhivataluzenet") {
 	client.channels.cache.get(element).send("Boldog új évet!"); }); 
 }
 
+else if (command === "munkadat")
+{
+	client.channels.cache.get('790477118521081866').send("Érkezett eAdat!");
+}
+else if (command === "penzadat")
+{
+	client.channels.cache.get('689394453877751835').send("Érkezett eAdat!");
+}
+else if (command === "adoadat")
+{
+	client.channels.cache.get('689394488476827665').send("Érkezett eAdat!");
+}
+else if (command === "e-utal") {
+client.channels.cache.get('689394453877751835').send("eAdat érkezett Napi utalás támában");
+client.channels.cache.get('790477118521081866').send("eAdat érkezett Napi utalás támában");
+}
+
+
 else if (command === "reggel") {
 client.user.setActivity("Jó reggelt!", {
   type: "PLAYING",
