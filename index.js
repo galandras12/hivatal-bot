@@ -8,7 +8,7 @@ var cron = require('node-cron');
 
 //require('log-timestamp')('HIVATAL-BOT:', 'Europe/Budapest');
 require('console-inject');
-const clearchannelid = ['689376897309999113', '689394488476827665', '689394453877751835', '790477118521081866'];
+const clearchannelid = ['689376897309999113', '689394488476827665', '689394453877751835'];
 const hivataluzenetall = ['689376897309999113', '766627222022127636', '766619701346304000', '760092279880548362', '758675127927439400', '763302417676238848', '758650559246630922', '758650594235121684'];
 	
 client.on('ready', () => {
@@ -195,12 +195,7 @@ else if (command === "ujevhivataluzenet") {
 	client.channels.cache.get(element).send("Boldog új évet!"); }); 
 }
 
-else if (command === "munkadat")
-{
-	client.channels.cache.get('790477118521081866').send("Érkezett eAdat!");
-}
-
-else if (command === "penzadat")
+else if (command === "eadat")
 {
 	client.channels.cache.get('689394453877751835').send("Érkezett eAdat!");
 }
@@ -212,7 +207,7 @@ else if (command === "adoadat")
 
 else if (command === "e-utal") {
 client.channels.cache.get('689394453877751835').send("eAdat érkezett Napi utalás támában");
-client.channels.cache.get('790477118521081866').send("eAdat érkezett Napi utalás támában");
+
 }
 
 else if (command === "reggel") {
