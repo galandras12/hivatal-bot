@@ -9,6 +9,7 @@ require('console-inject');
 const clearchannelid = ['689376897309999113', '689394488476827665', '689394453877751835'];
 const hivataluzenetall = ['689376897309999113', '766627222022127636', '766619701346304000', '760092279880548362', '758675127927439400', '763302417676238848', '758650559246630922', '758650594235121684'];
 const helpcommandlist = ['!ping - Nézd meg az üzeneted/szerver válaszidejét.','!sum - Számok összeadása','!kocka - Véletlen szerű szám generátor.', '!delpadat - Pénzügyi eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delaadat - Adós eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)','!delkoz - Közlemények törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delall - Minden üzenet törlése eAdat és közlemény csatornákból. (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!eadat - Ki írja hogy "eAdat ékezett" a pénzügyi csatornában.', '!adoadat - Ki írja hogy "eAdat ékezett" az adós csatonában']
+const channelbotmain = '760790573354844190';
 	
 client.on('ready', () => {
 	
@@ -27,7 +28,7 @@ const imap = {
   
 const n = notifier(imap);
 n.on('end', () => n.start()) // session closed
-	.on('mail', mail => client.channels.cache.get("760790573354844190").send(mail.subject))
+	.on('mail', mail => client.channels.cache.get(channelbotmain).send(mail.subject))
 	.start(); //Forever RUN 
 
 client.user.setStatus('online')
@@ -95,7 +96,7 @@ cron.schedule('01 14 * * 5', () => {
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
 	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
-	client.channels.cache.get("760790573354844190").send("14:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
+	client.channels.cache.get(channelbotmain).send("14:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 cron.schedule('0 16 * * 1,2,3,4', () => {
@@ -103,7 +104,7 @@ cron.schedule('0 16 * * 1,2,3,4', () => {
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
 	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
-	client.channels.cache.get("760790573354844190").send("16:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
+	client.channels.cache.get(channelbotmain).send("16:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 cron.schedule('00 18 * * 3', () => {
@@ -111,7 +112,7 @@ cron.schedule('00 18 * * 3', () => {
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
 	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
-	client.channels.cache.get("760790573354844190").send("18:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
+	client.channels.cache.get(channelbotmain).send("18:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 cron.schedule('01 12 * * 5', () => {
@@ -119,12 +120,12 @@ cron.schedule('01 12 * * 5', () => {
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
 	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
-	client.channels.cache.get("760790573354844190").send("12:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
+	client.channels.cache.get(channelbotmain).send("12:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 }); 
 });
 
 client.on('guildMemberAdd', member => {
-    member.guild.channels.get('760790573354844190').send("Üdvözöljük "+ member +"!"); 
+    member.guild.channels.get(channelbotmain).send("Üdvözöljük "+ member +"!"); 
 });
 
 client.on("message", function(message) {
@@ -153,7 +154,7 @@ else if (command === "kocka") {
 else if (command === "delpadat") {
 		client.channels.cache.get("689394453877751835").bulkDelete(100).catch(console.error);
 		console.log('DELETED last 100 messages in PÉNÜGY EADAT!');
-		client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `PÉNÜGY EADAT!`");
+		client.channels.cache.get(channelbotmain).send("`DELETED` last 100 messages in `PÉNÜGY EADAT!`");
 }
 
 else if (command === "adhelp") {
@@ -163,7 +164,7 @@ else if (command === "adhelp") {
 else if (command === "delaadat") {
 		client.channels.cache.get("689394488476827665").bulkDelete(100).catch(console.error);
 		console.log('DELETED last 100 messages in ADÓ EADAT!');
-		client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `ADÓ EADAT!`");
+		client.channels.cache.get(channelbotmain).send("`DELETED` last 100 messages in `ADÓ EADAT!`");
 }
 
 else if (command === "delkoz") {
@@ -177,7 +178,7 @@ else if (command === "delall") {
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
 	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
-	client.channels.cache.get("760790573354844190").send("`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
+	client.channels.cache.get(channelbotmain).send("`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 }
 
 else if (command === "help") {
@@ -208,7 +209,7 @@ else if (command === "adoadat")
 }
 
 else if (command === "e-utal") {
-client.channels.cache.get('689394453877751835').send("eAdat érkezett Napi utalás támában");
+	client.channels.cache.get('689394453877751835').send("eAdat érkezett Napi utalás támában");
 
 }
 
@@ -218,9 +219,12 @@ client.user.setActivity("Jó reggelt!", {
   url: "https://mezobereny.hu"
 }); }
 
-else if (command === "üzen")
+else if (command === "uzen")
 {
-	
+	if (!args.length) {
+		return message.channel.send('Hiányzik az üzenet!');
+	}
+	client.channels.cache.get(channelbotmain).send(args.splice(0).join(" "));
 }
 
 else if (command === "wstat") {
