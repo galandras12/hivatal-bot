@@ -5,11 +5,10 @@ const notifier = require('mail-notifier');
 const client = new Discord.Client();
 const prefix = "!";
 var cron = require('node-cron');
-
-//require('log-timestamp')('HIVATAL-BOT:', 'Europe/Budapest');
 require('console-inject');
 const clearchannelid = ['689376897309999113', '689394488476827665', '689394453877751835'];
 const hivataluzenetall = ['689376897309999113', '766627222022127636', '766619701346304000', '760092279880548362', '758675127927439400', '763302417676238848', '758650559246630922', '758650594235121684'];
+const helpcommandlist = ['!ping - Nézd meg az üzeneted/szerver válaszidejét.','!sum - Számok összeadása','!kocka - Véletlen szerű szám generátor.']
 	
 client.on('ready', () => {
 	
@@ -182,7 +181,10 @@ else if (command === "delall") {
 }
 
 else if (command === "help") {
-		message.reply("`használd a következő parancsokat: `\n`Válasz időt mutatja a bot és a géped között: !ping`\n`Számok gyors összeadására van: !szum`");
+	helpcommandlist.forEach(element => { 
+	message.channel.send(element).catch(console.error);
+		});
+		
 }
 
 else if (command === "xmashivataluzenet") {
