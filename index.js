@@ -8,7 +8,7 @@ var cron = require('node-cron');
 require('console-inject');
 const clearchannelid = ['689376897309999113', '689394488476827665', '689394453877751835'];
 const hivataluzenetall = ['689376897309999113', '766627222022127636', '766619701346304000', '760092279880548362', '758675127927439400', '763302417676238848', '758650559246630922', '758650594235121684'];
-const helpcommandlist = ['!ping - Nézd meg az üzeneted/szerver válaszidejét.','!sum - Számok összeadása','!kocka - Véletlen szerű szám generátor.', '!delpadat - Pénzügyi eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delaadat - Adós eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)','!delkoz - Közlemények törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delall - Minden üzenet törlése eAdat és közlemény csatornákból. (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!eadat - Ki írja hogy "eAdat ékezett" a pénzügyi csatornában.', '!adoadat - Ki írja hogy "eAdat ékezett" az adós csatonában']
+const helpcommandlist = ['!ping - Nézd meg az üzeneted/szerver válaszidejét.','!sum - Számok összeadása','!kocka - Véletlen szerű szám generátor.', '!delpadat - Pénzügyi eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delaadat - Adós eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)','!delkoz - Közlemények törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delall - Minden üzenet törlése eAdat és közlemény csatornákból. (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!eadat - Ki írja hogy "eAdat ékezett" a pénzügyi csatornában.', '!adoadat - Ki írja hogy "eAdat ékezett" az adós csatonában'];
 const channelbotmain = '760790573354844190';
 
 client.on('ready', () => {
@@ -24,12 +24,12 @@ const imap = {
 	tlsOptions: { rejectUnauthorized: false },
 	box: mailauth.emailbox,
 	markSeen: true,
-  }
+			}
 
 const n = notifier(imap);
 n.on('end', () => n.start()) // session closed
 	.on('mail', mail => client.channels.cache.get(channelbotmain).send(mail.subject))
-	.start(); //Forever RUN 
+	.start(); //Forever RUN (if lost connect get error) 
 
 client.user.setStatus('online')
 //online, idle, invisible, dnd
@@ -165,7 +165,6 @@ else if (command === "delkoz") {
   }
 
 else if (command === "delall") {
-	
 	clearchannelid.forEach(element => { 
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
@@ -177,7 +176,6 @@ else if (command === "help") {
 	helpcommandlist.forEach(element => { 
 	message.channel.send(element).catch(console.error);
 		});
-		
 }
 
 else if (command === "xmashivataluzenet") {
@@ -202,7 +200,6 @@ else if (command === "adoadat")
 
 else if (command === "e-utal") {
 	client.channels.cache.get('689394453877751835').send("eAdat érkezett Napi utalás támában");
-
 }
 
 else if (command === "reggel") {
@@ -212,12 +209,10 @@ client.user.setActivity("Jó reggelt!", {
 }); }
 
 else if (command === "uzen")
-{
-	if (!args.length) {
+{ 	if (!args.length) {
 		return message.channel.send('Hiányzik az üzenet!');
 	}
-	client.channels.cache.get(channelbotmain).send(args.splice(0).join(" "));
-}
+	client.channels.cache.get(channelbotmain).send(args.splice(0).join(" ")); }
 
 else if (command === "wstat") {
 const randommessages = ['ASP-t iratok', 'uzsonás zacsit', 'kedves ügyfeleket', 'postázandókat', 'de nem látja', 'mennyi van hátra a munkából', 'papír halmok', 'mi a teendő még', 'mit kell aláiratni', 'mennyi az idő', 'mezobereny.hu', 'naptári ünnepnapokat', 'kitűzött szabadságot', 'iktatnivalót', 'milyen alszám lehet', 'mekkora a rendetlenség', 'érkezett email-eket', 'hogy csak egy robot aki nem tud ennyi mindent nézni', 'ASP oldalát', 'eAdatokat', 'a kedves ügyfelet', 'megint nem megy semmi normálisan', 'kifogyó festék üzenetet', 'ez se oldja meg magát', 'kint hideg van?']
