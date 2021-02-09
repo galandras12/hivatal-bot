@@ -10,11 +10,11 @@ const clearchannelid = ['689376897309999113', '689394488476827665', '68939445387
 const hivataluzenetall = ['689376897309999113', '766627222022127636', '766619701346304000', '760092279880548362', '758675127927439400', '763302417676238848', '758650559246630922', '758650594235121684'];
 const helpcommandlist = ['!ping - Nézd meg az üzeneted/szerver válaszidejét.','!sum - Számok összeadása','!kocka - Véletlen szerű szám generátor.', '!delpadat - Pénzügyi eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delaadat - Adós eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)','!delkoz - Közlemények törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delall - Minden üzenet törlése eAdat és közlemény csatornákból. (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!eadat - Ki írja hogy "eAdat ékezett" a pénzügyi csatornában.', '!adoadat - Ki írja hogy "eAdat ékezett" az adós csatonában']
 const channelbotmain = '760790573354844190';
-	
+
 client.on('ready', () => {
-	
+
 console.debug('BOT is RUN');
-  
+
 const imap = {
 	user: mailauth.emailusername,
 	password: mailauth.emailpassword,
@@ -25,7 +25,7 @@ const imap = {
 	box: mailauth.emailbox,
 	markSeen: true,
   }
-  
+
 const n = notifier(imap);
 n.on('end', () => n.start()) // session closed
 	.on('mail', mail => client.channels.cache.get(channelbotmain).send(mail.subject))
@@ -39,57 +39,49 @@ cron.schedule('35 17 * * 3', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
-});
-});
+}); });
 
 cron.schedule('30 11 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Ebéd menüt.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
-});
-});
+}); });
 
 cron.schedule('00 12 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Ebédjét", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
-});
-});
+}); });
 
 cron.schedule('30 12 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Desszertet.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
-});
-});
+}); });
 
 cron.schedule('00 13 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Dolgozik", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
-});
-});
+}); });
 
 cron.schedule('00 14 * * 1,2,3,4,5', () => {
-	client.user.setActivity("Munkában van", {
+	client.user.setActivity("Munkában van",{
   type: "WATCHING",
   url: "https://mezobereny.hu"
-});
-});
+}); });
 
 cron.schedule('30 15 * * 1,2,4', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
-});
-});
+}); });
 
 cron.schedule('35 11 * * 5', () => {
 	client.user.setActivity("Órát! Mert lassan hétvége.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
-});
-});
+}); });
 
 cron.schedule('01 14 * * 5', () => {
     clearchannelid.forEach(element => { 
@@ -262,7 +254,6 @@ client.user.setActivity(randomMessage, {
   url: "https://mezobereny.hu"
 });
 }
-
 });
 
 client.login(config.BOT_TOKEN);
