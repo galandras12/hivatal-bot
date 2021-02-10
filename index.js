@@ -77,7 +77,7 @@ cron.schedule('30 15 * * 1,2,4', () => {
   url: "https://mezobereny.hu"
 }); });
 
-cron.schedule('35 11 * * 5', () => {
+cron.schedule('35 13 * * 5', () => {
 	client.user.setActivity("Órát! Mert lassan hétvége.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
@@ -91,7 +91,7 @@ cron.schedule('01 14 * * 5', () => {
 	client.channels.cache.get(channelbotmain).send("14:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
-cron.schedule('0 16 * * 1,2,3,4', () => {
+cron.schedule('0 16 * * 1,2,4', () => {
    clearchannelid.forEach(element => { 
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
