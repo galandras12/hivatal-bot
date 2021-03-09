@@ -10,6 +10,7 @@ const clearchannelid = ['689376897309999113', '689394488476827665', '68939445387
 const hivataluzenetall = ['689376897309999113', '766627222022127636', '766619701346304000', '760092279880548362', '758675127927439400', '763302417676238848', '758650559246630922', '758650594235121684'];
 const helpcommandlist = ['!ping - Nézd meg az üzeneted/szerver válaszidejét.','!sum - Számok összeadása','!kocka - Véletlen szerű szám generátor.', '!delpadat - Pénzügyi eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delaadat - Adós eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)','!delkoz - Közlemények törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delall - Minden üzenet törlése eAdat és közlemény csatornákból. (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!eadat - Ki írja hogy "eAdat ékezett" a pénzügyi csatornában.', '!adoadat - Ki írja hogy "eAdat ékezett" az adós csatonában'];
 const channelbotmain = '760790573354844190';
+const channelbc ='689376897309999113';
 
 client.on('ready', () => {
 
@@ -208,11 +209,11 @@ client.user.setActivity("Jó reggelt!", {
   url: "https://mezobereny.hu"
 }); }
 
-else if (command === "uzen")
+else if (command === "bc")
 { 	if (!args.length) {
-		return message.channel.send('Hiányzik az üzenet!');
+	return message.channel.send('Hiányzik az üzenet!');
 	}
-	client.channels.cache.get("410777672797650946").send(args.splice(0).join(" ")); }
+	client.channels.cache.get(channelbc).send(args.splice(0).join(" ")); }
 
 else if (command === "wstat") {
 const randommessages = ['ASP-t iratok', 'uzsonás zacsit', 'kedves ügyfeleket', 'postázandókat', 'de nem látja', 'mennyi van hátra a munkából', 'papír halmok', 'mi a teendő még', 'mit kell aláiratni', 'mennyi az idő', 'mezobereny.hu', 'naptári ünnepnapokat', 'kitűzött szabadságot', 'iktatnivalót', 'milyen alszám lehet', 'mekkora a rendetlenség', 'érkezett email-eket', 'hogy csak egy robot aki nem tud ennyi mindent nézni', 'ASP oldalát', 'eAdatokat', 'a kedves ügyfelet', 'megint nem megy semmi normálisan', 'kifogyó festék üzenetet', 'ez se oldja meg magát', 'kint hideg van?']
