@@ -21,7 +21,7 @@ const imap = {
 	password: mailauth.emailpassword,
 	host: 'imap.gmail.com',
 	port: 993,
-	tls: true,
+	tls: true, //true
 	tlsOptions: { rejectUnauthorized: false },
 	box: mailauth.emailbox,
 	markSeen: true,
