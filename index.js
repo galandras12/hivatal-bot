@@ -197,7 +197,7 @@ else if (command === "ujevhivataluzenet") {
 	client.channels.cache.get(element).send("Boldog új évet!"); }); 
 }
 
-else if (command === "eadat")
+else if (command === "penzadat")
 {
 	client.channels.cache.get('689394453877751835').send("Érkezett eAdat!");
 }
