@@ -222,6 +222,18 @@ else if (command === "bc")
 	return message.channel.send('Hiányzik az üzenet!');
 	}
 	client.channels.cache.get(channelbc).send(args.splice(0).join(" ")); }
+	
+else if (command === "peadat")
+{ 	if (!args.length) {
+	return message.channel.send('Hiányzik az üzenet!');
+	}
+	client.channels.cache.get('689394453877751835').send("Érkezett eAdat! Következő témakörben: "+ args.splice(0).join(" ")) }
+	
+else if (command === "aeadat")
+{ 	if (!args.length) {
+	return message.channel.send('Hiányzik az üzenet!');
+	}
+	client.channels.cache.get('689394488476827665').send("Érkezett eAdat! Következő témakörben: "+ args.splice(0).join(" ")) }	
 
 else if (command === "wstat") {
 const randommessages = ['ASP-t iratok', 'uzsonás zacsit', 'kedves ügyfeleket', 'postázandókat', 'de nem látja', 'mennyi van hátra a munkából', 'papír halmok', 'mi a teendő még', 'mit kell aláiratni', 'mennyi az idő', 'mezobereny.hu', 'naptári ünnepnapokat', 'kitűzött szabadságot', 'iktatnivalót', 'milyen alszám lehet', 'mekkora a rendetlenség', 'érkezett email-eket', 'hogy csak egy robot aki nem tud ennyi mindent nézni', 'ASP oldalát', 'eAdatokat', 'a kedves ügyfelet', 'megint nem megy semmi normálisan', 'kifogyó festék üzenetet', 'ez se oldja meg magát', 'kint hideg van?']
