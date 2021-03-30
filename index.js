@@ -80,15 +80,14 @@ cron.schedule('30 15 * * 1,2,4', () => {
 
 cron.schedule('35 13 * * 5', () => {
 	client.user.setActivity("Órát! Mert lassan hétvége.", {
-  type: "WATCHING",
-  url: "https://mezobereny.hu"
+  type: "WATCHING"
 }); });
 
 cron.schedule('00 14 * * 5', () => {
     clearchannelid.forEach(element => { 
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
-	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
+	console.log('DELETED last 100 messages in ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get(channelbotmain).send("14:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
@@ -96,23 +95,21 @@ cron.schedule('0 16 * * 1,2,4', () => {
    clearchannelid.forEach(element => { 
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
-	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
+	console.log('DELETED last 100 messages in ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get(channelbotmain).send("16:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 cron.schedule('30 8 * * 1', () => {
-   clearchannelid.forEach(element => { 
-	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
-		}); 
+	client.channels.cache.get(channelbc).bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények');
-	client.channels.cache.get(channelbc).send("08:30 - Hét kezdése: \n`DELETED` last 100 messages in `Közlemények`");
+	client.channels.cache.get(channelbotmain).send("08:30 - Hét kezdése: \n`DELETED` last 100 messages in `Közlemények`");
 });
 
 cron.schedule('00 18 * * 3', () => {
     clearchannelid.forEach(element => { 
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
-	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
+	console.log('DELETED last 100 messages in ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get(channelbotmain).send("18:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
@@ -120,7 +117,7 @@ cron.schedule('00 12 * * 5', () => {
     clearchannelid.forEach(element => { 
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
-	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
+	console.log('DELETED last 100 messages in ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get(channelbotmain).send("12:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 }); 
 });
@@ -177,8 +174,8 @@ else if (command === "delall") {
 	clearchannelid.forEach(element => { 
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
-	console.log('DELETED last 100 messages in Közlemények, ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
-	client.channels.cache.get(channelbotmain).send("`DELETED` last 100 messages in `Közlemények`, `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
+	console.log('DELETED last 100 messages in ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
+	client.channels.cache.get(channelbotmain).send("`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 }
 
 else if (command === "help") {
@@ -187,14 +184,19 @@ else if (command === "help") {
 		});
 }
 
-else if (command === "xmashivataluzenet") {
+else if (command === "karacsonyu") {
 	hivataluzenetall.forEach(element => { 
 	client.channels.cache.get(element).send("Boldog karácsonyi ünnepeket!"); }); 
 }
 
-else if (command === "ujevhivataluzenet") {
+else if (command === "ujevu") {
 	hivataluzenetall.forEach(element => { 
 	client.channels.cache.get(element).send("Boldog új évet!"); }); 
+}
+
+else if (command === "husvetu") {
+	hivataluzenetall.forEach(element => { 
+	client.channels.cache.get(element).send("Boldog húsvéti ünnepeket!"); }); 
 }
 
 else if (command === "penzadat")
@@ -202,9 +204,19 @@ else if (command === "penzadat")
 	client.channels.cache.get('689394453877751835').send("Érkezett eAdat!");
 }
 
+else if (command === "penzadat2")
+{
+	client.channels.cache.get('689394453877751835').send("Érkezett új eAdat!");
+}
+
 else if (command === "adoadat")
 {
 	client.channels.cache.get('689394488476827665').send("Érkezett eAdat!");
+}
+
+else if (command === "adoadat2")
+{
+	client.channels.cache.get('689394488476827665').send("Érkezett új eAdat!");
 }
 
 else if (command === "e-utal") {
@@ -239,8 +251,7 @@ else if (command === "wstat") {
 const randommessages = ['ASP-t iratok', 'uzsonás zacsit', 'kedves ügyfeleket', 'postázandókat', 'de nem látja', 'mennyi van hátra a munkából', 'papír halmok', 'mi a teendő még', 'mit kell aláiratni', 'mennyi az idő', 'mezobereny.hu', 'naptári ünnepnapokat', 'kitűzött szabadságot', 'iktatnivalót', 'milyen alszám lehet', 'mekkora a rendetlenség', 'érkezett email-eket', 'hogy csak egy robot aki nem tud ennyi mindent nézni', 'ASP oldalát', 'eAdatokat', 'a kedves ügyfelet', 'megint nem megy semmi normálisan', 'kifogyó festék üzenetet', 'ez se oldja meg magát', 'kint hideg van?']
 const randomMessage = randommessages[Math.floor(Math.random() * randommessages.length)];
 client.user.setActivity(randomMessage, {
-  type: "WATCHING",
-  url: "https://mezobereny.hu"
+  type: "WATCHING"
 });
 }
 
@@ -248,8 +259,7 @@ else if (command === "lstat") {
 const randommessages = ['Dögös robit', 'Rádió 1-et', 'kedves ügyfeleket', 'kinti zajokat', 'üvöltüző kedves utcabelieket', 'az óra ketyegését', 'nyomtató hiba sípolását', 'telefoncsörgést amit nem veszek fel', 'igazi slágereket', 'esik az eső?', 'mekkora a csend', 'reklámokat interneten', 'nyomtató zúgását', 'igazi metál zenét', 'híreket', 'POP slágereket', 'csak az igazi rap zenéket', 'egy süket robot? hogyan?', 'bőszen kopogó billentyűt munka közben', 'valami sípól? áramszünet van?', 'a kedves ügyfelet', 'megint nem jó valami a szonszédba', 'jött egy értesítésem', 'valaki mérges', 'mulatósat!']
 const randomMessage = randommessages[Math.floor(Math.random() * randommessages.length)];
 client.user.setActivity(randomMessage, {
-  type: "LISTENING",
-  url: "https://mezobereny.hu"
+  type: "LISTENING"
 });
 }
 
@@ -257,8 +267,7 @@ else if (command === "sstat") {
 const randommessages = ['mezobereny.hu', 'Youtube videó', 'Facebook']
 const randomMessage = randommessages[Math.floor(Math.random() * randommessages.length)];
 client.user.setActivity(randomMessage, {
-  type: "STREAMING",
-  url: "https://mezobereny.hu"
+  type: "STREAMING"
 });
 }
 
@@ -266,8 +275,7 @@ else if (command === "pstat") {
 const randommessages = ['ASP-t iratok', 'uzsonázik', 'kedves ügyfelekkel', 'a fa* -ragott kis figurákkal']
 const randomMessage = randommessages[Math.floor(Math.random() * randommessages.length)];
 client.user.setActivity(randomMessage, {
-  type: "PLAYING",
-  url: "https://mezobereny.hu"
+  type: "PLAYING"
 });
 }
 });
