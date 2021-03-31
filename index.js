@@ -196,25 +196,15 @@ else if (command === "ujevu") {
 
 else if (command === "husvetu") {
 	hivataluzenetall.forEach(element => { 
-	client.channels.cache.get(element).send("Boldog húsvéti ünnepeket!"); }); 
+	client.channels.cache.get(element).send("Kellemes húsvéti ünnepeket!"); }); 
 }
 
-else if (command === "penzadat")
-{
-	client.channels.cache.get('689394453877751835').send("Érkezett eAdat!");
-}
-
-else if (command === "penzadat2")
+else if (command === "ujpeadat")
 {
 	client.channels.cache.get('689394453877751835').send("Érkezett új eAdat!");
 }
 
-else if (command === "adoadat")
-{
-	client.channels.cache.get('689394488476827665').send("Érkezett eAdat!");
-}
-
-else if (command === "adoadat2")
+else if (command === "ujaeadat")
 {
 	client.channels.cache.get('689394488476827665').send("Érkezett új eAdat!");
 }
@@ -237,13 +227,14 @@ else if (command === "bc")
 	
 else if (command === "peadat")
 { 	if (!args.length) {
-	return message.channel.send('Hiányzik az üzenet!');
+	return client.channels.cache.get('689394453877751835').send("**Érkezett eAdat!**");
 	}
 	client.channels.cache.get('689394453877751835').send("**Érkezett eAdat!** Következő témakörben: "+ args.splice(0).join(" ")) }
 	
 else if (command === "aeadat")
 { 	if (!args.length) {
-	return message.channel.send('Hiányzik az üzenet!');
+	return client.channels.cache.get('689394488476827665').send("**Érkezett eAdat!**");
+	//message.channel.send('Hiányzik az üzenet!'); 
 	}
 	client.channels.cache.get('689394488476827665').send("**Érkezett eAdat!** Következő témakörben: "+ args.splice(0).join(" ")) }	
 
