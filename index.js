@@ -119,7 +119,7 @@ cron.schedule('00 12 * * 5', () => {
 		}); 
 	console.log('DELETED last 100 messages in ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get(channelbotmain).send("12:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
-}); 
+});
 });
 
 client.on('guildMemberAdd', member => {
