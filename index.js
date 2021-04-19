@@ -99,11 +99,11 @@ cron.schedule('0 16 * * 1,2,4', () => {
 	client.channels.cache.get(channelbotmain).send("16:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
-cron.schedule('30 8 * * 1', () => {
+/* cron.schedule('30 8 * * 1', () => {
 	client.channels.cache.get(channelbc).bulkDelete(100).catch(console.error);
 	console.log('DELETED last 100 messages in Közlemények');
 	client.channels.cache.get(channelbotmain).send("08:30 - Hét kezdése: \n`DELETED` last 100 messages in `Közlemények`");
-});
+}); */
 
 cron.schedule('00 18 * * 3', () => {
     clearchannelid.forEach(element => { 
