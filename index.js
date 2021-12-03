@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
-const config = require("./config.json");
-const mailauth = require("./authmail.json");
-const notifier = require('mail-notifier');
+const config = require("./config.json"); // Discord Config file with BOT token! 
+const mailauth = require("./authmail.json"); //Mail authentication file. 
+const notifier = require('mail-notifier'); //Automatic Mail altert plugin
 const client = new Discord.Client();
 const prefix = "!";
-var cron = require('node-cron');
-require('console-inject');
+var cron = require('node-cron'); // Timer corn schedule plugin
+require('console-inject'); //Console LOG
 const clearchannelid = ['689394488476827665', '689394453877751835'];
 const hivataluzenetall = ['689376897309999113', '766627222022127636', '766619701346304000', '760092279880548362', '758675127927439400', '763302417676238848', '758650559246630922', '758650594235121684'];
 const helpcommandlist = ['!ping - Nézd meg az üzeneted/szerver válaszidejét.','!sum - Számok összeadása','!kocka - Véletlen szerű szám generátor.', '!delpadat - Pénzügyi eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delaadat - Adós eAdatok törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)','!delkoz - Közlemények törlése (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!delall - Minden üzenet törlése eAdat és közlemény csatornákból. (ami nem régebbi 15 napnál és/vagy nem több 100 üzenetnél)', '!eadat - Ki írja hogy "eAdat ékezett" a pénzügyi csatornában.', '!adoadat - Ki írja hogy "eAdat ékezett" az adós csatonában'];
@@ -32,51 +32,45 @@ n.on('end', () => n.start()) // session closed
 	.on('mail', mail => client.channels.cache.get(channelbotmain).send(mail.subject))
 	.start(); //Forever RUN (if lost connect get error) 
 
-
-client.user.setStatus('online')
 //online, idle, invisible, dnd
 //PLAYING, STREAMING, LISTENING, WATCHING, CUSTOM_STATUS, COMPETING
 
 cron.schedule('50 17 * * 3', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
-  type: "WATCHING",
-  url: "https://mezobereny.hu"
+  type: "WATCHING"
 }); });
 
 cron.schedule('50 11 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Ebéd menüt.", {
-  type: "WATCHING",
-  url: "https://mezobereny.hu"
+  type: "WATCHING"
 }); });
 
 cron.schedule('00 12 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Ebédjét", {
-  type: "WATCHING",
-  url: "https://mezobereny.hu"
-}); });
+  type: "WATCHING"
+}); client.user.setStatus('dnd')
+});
 
 cron.schedule('30 12 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Desszertet.", {
-  type: "WATCHING",
-  url: "https://mezobereny.hu"
-}); });
+  type: "WATCHING"
+}); client.user.setStatus('idle')
+});
 
 cron.schedule('00 13 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Dolgozik", {
-  type: "WATCHING",
-  url: "https://mezobereny.hu"
-}); });
+  type: "WATCHING"
+}); client.user.setStatus('online')
+});
 
 cron.schedule('00 14 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Munkában van",{
-  type: "WATCHING",
-  url: "https://mezobereny.hu"
+  type: "WATCHING"
 }); });
 
 cron.schedule('50 15 * * 1,2,4', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
-  type: "WATCHING",
-  url: "https://mezobereny.hu"
+  type: "WATCHING"
 }); });
 
 cron.schedule('50 13 * * 5', () => {
@@ -99,12 +93,6 @@ cron.schedule('0 16 * * 1,2,4', () => {
 	console.log('DELETED last 100 messages in ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
 	client.channels.cache.get(channelbotmain).send("16:00 - DAY END: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
-
-/* cron.schedule('30 8 * * 1', () => {
-	client.channels.cache.get(channelbc).bulkDelete(100).catch(console.error);
-	console.log('DELETED last 100 messages in Közlemények');
-	client.channels.cache.get(channelbotmain).send("08:30 - Hét kezdése: \n`DELETED` last 100 messages in `Közlemények`");
-}); */
 
 cron.schedule('00 18 * * 3', () => {
     clearchannelid.forEach(element => { 
