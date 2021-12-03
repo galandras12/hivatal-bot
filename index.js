@@ -32,17 +32,18 @@ n.on('end', () => n.start()) // session closed
 	.on('mail', mail => client.channels.cache.get(channelbotmain).send(mail.subject))
 	.start(); //Forever RUN (if lost connect get error) 
 
+
 client.user.setStatus('online')
 //online, idle, invisible, dnd
 //PLAYING, STREAMING, LISTENING, WATCHING, CUSTOM_STATUS, COMPETING
 
-cron.schedule('35 17 * * 3', () => {
+cron.schedule('50 17 * * 3', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
 }); });
 
-cron.schedule('30 11 * * 1,2,3,4,5', () => {
+cron.schedule('50 11 * * 1,2,3,4,5', () => {
 	client.user.setActivity("Ebéd menüt.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
@@ -72,13 +73,13 @@ cron.schedule('00 14 * * 1,2,3,4,5', () => {
   url: "https://mezobereny.hu"
 }); });
 
-cron.schedule('30 15 * * 1,2,4', () => {
+cron.schedule('50 15 * * 1,2,4', () => {
 	client.user.setActivity("Órát! Mert lassan munka idő vége.", {
   type: "WATCHING",
   url: "https://mezobereny.hu"
 }); });
 
-cron.schedule('35 13 * * 5', () => {
+cron.schedule('50 13 * * 5', () => {
 	client.user.setActivity("Órát! Mert lassan hétvége.", {
   type: "WATCHING"
 }); });
@@ -88,7 +89,7 @@ cron.schedule('00 14 * * 5', () => {
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
 	console.log('DELETED last 100 messages in ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
-	client.channels.cache.get(channelbotmain).send("14:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
+	client.channels.cache.get(channelbotmain).send("14:00 - DAY END: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 cron.schedule('0 16 * * 1,2,4', () => {
@@ -96,7 +97,7 @@ cron.schedule('0 16 * * 1,2,4', () => {
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
 	console.log('DELETED last 100 messages in ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
-	client.channels.cache.get(channelbotmain).send("16:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
+	client.channels.cache.get(channelbotmain).send("16:00 - DAY END: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
 /* cron.schedule('30 8 * * 1', () => {
@@ -110,10 +111,10 @@ cron.schedule('00 18 * * 3', () => {
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
 	console.log('DELETED last 100 messages in ADÓ EADAT, PÉNÜGY EADAT, MUNKAÜGY EADAT');
-	client.channels.cache.get(channelbotmain).send("18:00 - NAP VÉGE RUTIN: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
+	client.channels.cache.get(channelbotmain).send("18:00 - DAY END: \n`DELETED` last 100 messages in `ADÓ EADAT!`, `PÉNÜGY EADAT!`, `MUNKAÜGY EADAT`");
 });
 
-cron.schedule('00 12 * * 5', () => {
+cron.schedule('00 14 * * 5', () => {
     clearchannelid.forEach(element => { 
 	client.channels.cache.get(element).bulkDelete(100).catch(console.error);
 		}); 
@@ -225,7 +226,7 @@ else if (command === "bc")
 	}
 	client.channels.cache.get(channelbc).send(args.splice(0).join(" ")); }
 	
-else if (command === "peadat")
+else if (command === "eadat")
 { 	if (!args.length) {
 	return client.channels.cache.get('689394453877751835').send("**Érkezett eAdat!**");
 	}
@@ -269,6 +270,11 @@ client.user.setActivity(randomMessage, {
   type: "PLAYING"
 });
 }
+
+else if (command === "corn") {
+		message.reply("A process processing in progress!");
+}
+
 });
 
 client.login(config.BOT_TOKEN);
